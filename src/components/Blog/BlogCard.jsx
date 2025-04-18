@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { FaRegClock } from "react-icons/fa"
+import { GoArrowUpRight } from "react-icons/go"
 
 const BlogCard = ({ data }) => {
     console.log(data)
@@ -7,7 +8,7 @@ const BlogCard = ({ data }) => {
     return (
         <div>
             <div 
-                className={`relative w-full h-96 rounded-xl overflow-hidden transition-transform duration-300`}
+                className={`relative w-full h-[500px] rounded-xl overflow-hidden transition-transform duration-300`}
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}
             >
@@ -16,6 +17,11 @@ const BlogCard = ({ data }) => {
                 <h1 className="flex items-center absolute top-0 right-0 text-blue-500 font-medium bg-gray-200 px-5 py-2 rounded-bl-xl">
                     <FaRegClock className="mr-2" /> {data.read_time_minute} min read
                 </h1>
+                {isHover && (
+                    <div className="absolute rounded-full inset-0 p-5 flex items-center justify-center">
+                        <GoArrowUpRight className="text-black rounded-full  text-4xl bg-white  " />
+                    </div>
+                )}
                 <div className="absolute bottom-0 left-0">
                     <div className="bg-white px-4 py-3">
                         <div className="flex items-center gap-2 rounded-tr-2xl">
@@ -26,9 +32,9 @@ const BlogCard = ({ data }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="bg-white px-4 pb-5">
+                    <div className="bg-white px-4 pb-14">
                         <h1 className="text-xl font-bold">{data.title.slice(0, 80)}</h1>
-                        <p className={`text-sm font-normal text-gray-500 mt-2 transition-all duration-300 transform ${isHover ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
+                        <p className={`text-sm font-normal text-gray-500 mt-2 transition-all duration-300 transform absolute ${isHover ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
                             {data.title}
                         </p>
                     </div>

@@ -2,6 +2,7 @@ import BlogHero from "./components/BlogHero";
 import AllBlogs from "./components/AllBlogs";
 import Footer from "./components/Footer";
 import Header from "./components/Header/Header";
+import Project from "./components/Project/Project";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
         <div className="container m-auto">
           <BlogHero />
           <AllBlogs />
+        </div>
+        <div>
+          <Project/>
         </div>
       </div>
       <Footer />
